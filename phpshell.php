@@ -102,10 +102,7 @@
     }
 
     //clean up nice
-    proc_close($process);
-    fclose($pipes[0]);
-    fclose($pipes[1]);
-    fclose($pipes[2]);
     fclose($socket);
+    proc_close($process);
 
 ?>
