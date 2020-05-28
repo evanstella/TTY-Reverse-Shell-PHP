@@ -71,7 +71,8 @@
             break;
         }
 
-        // keeps track of the state of incoming data, stdout, and stderr
+        // keeps track of the state of incoming 
+        // data from the host, stdout, and stderr
         $traffic = array($socket, $pipes[1], $pipes[2]);
         // dummy variables because we only care about traffic
         $write = null; $except = null;
