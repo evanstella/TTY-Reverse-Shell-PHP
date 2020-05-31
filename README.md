@@ -11,4 +11,4 @@ Change params at the top of the script as needed, then upload to target and begi
 
 *TTY functionality*:
 
-The script attempts to spawn a tty shell using python; this will fail if python is not installed on the target system.
+The script attempts to spawn a tty shell using python; this will fail if python is not installed on the target system. This assumes that either 'python' or 'python3' binaries are runnable by the user that gets logged in.
