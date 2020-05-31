@@ -1,5 +1,7 @@
 <?php
 
+    // AUTHOR: EVAN STELLA
+
     // CHANGE THE FOLLOWING PARAMS AS NEEDED:
     //---------------------------------------------------------------
     $addr = '127.0.0.1';   # shell destination (loopback for testing)
