@@ -2,4 +2,12 @@
 
 By Evan Stella
 
-Intended for **legal/educational purposes only**. Don't do anything stupid, I assume no liability for damage caused to systems. I've used this for CTF challanges when given the opportuntity to upload malicious PHP code to a system. There are fields at the top of the script for the destination address and port to send the shell to. I've only been only test the script in a few specific scenarios and it is by no means perfect.
+Intended for **legal/educational purposes only**. Don't do anything stupid, I assume no liability for damage caused to systems. 
+
+*Usage* 
+
+Change params at the top of the script as needed, then upload to target and begin listening on the inputted port.
+
+*tty functionality*
+
+The script attempts to spawn a tty shell using python; this will fail if python is not installed on the target system.
