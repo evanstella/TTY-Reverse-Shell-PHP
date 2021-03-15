@@ -2,7 +2,7 @@
 
 By Evan Stella
 
-Intended for **legal/educational purposes only**. Don't do anything stupid, I assume no liability for damage caused to systems. 
+Intended for **legal/educational purposes only**. 
 
 *Usage*: 
 
